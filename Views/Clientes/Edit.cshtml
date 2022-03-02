@@ -1,0 +1,64 @@
+﻿@model Clientes
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center">Edicion de Cliente</h1>
+    </div>
+</div>
+
+<div>
+    <div class="card-body">
+        <form asp-controller="Clientes" asp-action="Update" method="post">
+            <input type="hidden" asp-for=" ID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoP" class="control-label"></label>
+                <input asp-for="ApellidoP" class="form-control" />
+                <span asp-validation-for="ApellidoP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoM" class="control-label"></label>
+                <input asp-for="ApellidoM" class="form-control" />
+                <span asp-validation-for="ApellidoM" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Genero" class="control-label"></label>
+                @Html.DropDownListFor(i => i.Genero, new SelectList(Enum.GetNames(typeof(Prueba_TeCAS.Models.Genero))), "Selecciona un Genero", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Matricula" class="control-label"></label>
+                <input asp-for="Matricula" class="form-control" placeholder="ABC-000" />
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control">Guardar Cambios</button>
+                            &nbsp;
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Volver a lista</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+

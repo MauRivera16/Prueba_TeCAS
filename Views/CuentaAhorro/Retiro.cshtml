@@ -1,0 +1,32 @@
+﻿@model CuentasAhorro
+@{
+    ViewData["Title"] = "Retiro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Deposito</h3>
+<form method="post" asp-controller="CuentaAhorro" asp-action="UpdateRet" enctype="multipart/form-data">
+    <div class="row px-2 mx-2 border">
+        <input type="hidden" asp-for=" ID" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+        <div class="col-10 offset-2 mt-4">
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Saldo">Cantidad a retirar </label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Saldo" class="form-control" />
+                    <span asp-validation-for="Saldo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <partial name="Botones" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
